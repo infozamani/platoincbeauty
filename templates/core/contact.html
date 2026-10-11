@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - PlatonicBeauty{% endblock %}
+
+{% block content %}
+
+<section class="py-20">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h1 class="font-serif text-5xl font-bold mb-4">Get in Touch</h1>
+            <p class="text-gray-600">We'd love to hear from you</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <!-- Contact Info -->
+            <div>
+                <h2 class="font-serif text-2xl font-bold mb-6">Visit Us</h2>
+                <ul class="space-y-4 text-gray-700">
+                    <li><strong>Address:</strong> 123 Beauty Ave, Los Angeles, CA</li>
+                    <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+                    <li><strong>Email:</strong> hello@platonicbeauty.com</li>
+                    <li><strong>Hours:</strong> Mon-Fri 9AM-8PM, Sat 9AM-6PM, Sun Closed</li>
+                </ul>
+            </div>
+
+            <!-- Contact Form -->
+            <div>
+                <h2 class="font-serif text-2xl font-bold mb-6">Send a Message</h2>
+                <form method="post" class="space-y-4">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Your Name" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-beauty-pink">
+                    <input type="email" name="email" placeholder="Your Email" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-beauty-pink">
+                    <textarea name="message" rows="5" placeholder="Your Message" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-beauty-pink"></textarea>
+                    <button type="submit"
+                        class="w-full bg-beauty-pink text-white py-3 rounded-full font-semibold hover:bg-pink-700 transition">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

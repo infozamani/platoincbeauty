@@ -1,0 +1,47 @@
+<nav class="bg-white shadow-md sticky top-0 z-50" x-data="{ mobileOpen: false }">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="{% url 'core:home' %}" class="font-serif text-2xl font-bold text-beauty-dark">
+                Platonic<span class="text-beauty-pink">Beauty</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="{% url 'core:home' %}" class="hover:text-beauty-pink transition">Home</a>
+                <a href="{% url 'services:list' %}" class="hover:text-beauty-pink transition">Services</a>
+                <a href="{% url 'stylists:list' %}" class="hover:text-beauty-pink transition">Our Team</a>
+                <a href="{% url 'gallery:list' %}" class="hover:text-beauty-pink transition">Gallery</a>
+                <a href="{% url 'blog:list' %}" class="hover:text-beauty-pink transition">Blog</a>
+                <a href="{% url 'core:contact' %}" class="hover:text-beauty-pink transition">Contact</a>  
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="{% url 'bookings:create' %}" class="bg-beauty-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-700 transition">
+                    Book Now
+                </a>  
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button @click="mobileOpen = !mobileOpen" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileOpen" x-transition class="md:hidden pb-4">
+            <a href="{% url 'services:list' %}" class="block py-2">Services</a>
+            <a href="{% url 'core:home' %}" class="block py-2">Home</a>
+            <a href="{% url 'stylists:list' %}" class="block py-2">Our Team</a>
+            <a href="{% url 'gallery:list' %}" class="block py-2">Gallery</a>
+            <a href="{% url 'blog:list' %}" class="block py-2">Blog</a>
+            <a href="{% url 'core:contact' %}" class="block py-2">Contact</a>
+            <a href="{% url 'bookings:create' %}" class="block mt-4 bg-beauty-pink text-white text-center px-6 py-3 rounded-full font-semibold">
+                Book Now
+            </a>  
+        </div>
+    </div>
+</nav>

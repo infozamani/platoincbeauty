@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ service.name }} - PlatonicBeauty{% endblock %}
+
+{% block content %}
+
+<section class="py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <a href="{% url 'services:list' %}" class="text-beauty-pink mb-6 inline-block">← Back to Services</a>
+
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            {% if service.image %}
+                <img src="{{ service.image.url }}" alt="{{ service.name }}" class="w-full h-96 object-cover">
+            {% endif %}
+            <div class="p-8">
+                <span class="text-xs uppercase tracking-wide text-beauty-pink font-semibold">
+                    {{ service.get_gender_display }}
+                </span>
+                <h1 class="font-serif text-4xl font-bold mt-2 mb-4">{{ service.name }}</h1>
+                <p class="text-gray-700 mb-6">{{ service.description }}</p>
+
+                <div class="flex justify-between items-center border-t pt-6">
+                    <div>
+                        <p class="text-2xl font-bold text-beauty-pink">${{ service.price }}</p>
+                        <p class="text-gray-500 text-sm">Duration: {{ service.duration_minutes }} min</p>
+                    </div>
+                    {% comment %} <a href="{% url 'bookings:create' %}?service={{ service.id }}"
+                       class="bg-beauty-pink text-white px-8 py-4 rounded-full font-semibold hover:bg-pink-700 transition">
+                        Book This Service
+                    </a> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

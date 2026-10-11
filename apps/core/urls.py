@@ -1,0 +1,12 @@
+from django.urls import path
+from . import views
+
+app_name = 'core'
+
+urlpatterns = [
+    # Home page: /
+    path('', views.home, name='home'),
+
+    # Contact page: /contact/
+    path('contact/', views.contact, name='contact'),
+]

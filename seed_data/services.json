@@ -1,0 +1,16 @@
+{
+  "model": "services.service",
+  "pk": 1,
+  "fields": {
+    "name": "Men's Haircut",
+    "slug": "mens-haircut",
+    "description": "Classic men's haircut with consultation, wash, and styling.",
+    "gender": "male",
+    "category": 1,
+    "duration_minutes": 30,
+    "price": "35.00",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-01-01T00:00:00Z"
+  }
+}

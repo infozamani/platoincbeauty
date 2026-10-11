@@ -1,0 +1,58 @@
+[
+  {
+    "model": "stylists.stylist",
+    "pk": 1,
+    "fields": {
+      "user": null,
+      "display_name": "Alex Morgan",
+      "slug": "alex-morgan",
+      "bio": "Master barber with 10 years of experience specializing in men's classic cuts and modern fades.",
+      "photo": "",
+      "specialties": [1, 2],
+      "is_active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "stylists.stylist",
+    "pk": 2,
+    "fields": {
+      "user": null,
+      "display_name": "Sofia Laurent",
+      "slug": "sofia-laurent",
+      "bio": "Color specialist trained in Paris. Expert in balayage, ombré, and dimensional color.",
+      "photo": "",
+      "specialties": [3, 4, 5],
+      "is_active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "stylists.stylist",
+    "pk": 3,
+    "fields": {
+      "user": null,
+      "display_name": "Jordan Blake",
+      "slug": "jordan-blake",
+      "bio": "Unisex stylist with a passion for precision cuts and healthy hair treatments.",
+      "photo": "",
+      "specialties": [1, 3, 6],
+      "is_active": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "stylists.stylist",
+    "pk": 4,
+    "fields": {
+      "user": null,
+      "display_name": "Mia Chen",
+      "slug": "mia-chen",
+      "bio": "Spa and treatment expert focused on restoring hair health and relaxation.",
+      "photo": "",
+      "specialties": [6],
+      "is_active": true,
+      "order": 4
+    }
+  }
+]

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Gallery - PlatonicBeauty{% endblock %}
+
+{% block content %}
+<section class="py-16">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h1 class="font-serif text-5xl font-bold mb-4">Gallery</h1>
+            <p class="text-gray-600">Our latest work</p>
+        </div>
+
+        <div class="flex justify-center gap-3 mb-8">
+            <a href="{% url 'gallery:list' %}" class="px-4 py-2 rounded-full border {% if not selected_category %}bg-beauty-pink text-white{% endif %}">All</a>
+            <a href="?category=hair" class="px-4 py-2 rounded-full border {% if selected_category == 'hair' %}bg-beauty-pink text-white{% endif %}">Hair</a>
+            <a href="?category=nails" class="px-4 py-2 rounded-full border {% if selected_category == 'nails' %}bg-beauty-pink text-white{% endif %}">Nails</a>
+            <a href="?category=makeup" class="px-4 py-2 rounded-full border {% if selected_category == 'makeup' %}bg-beauty-pink text-white{% endif %}">Makeup</a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {% for item in items %}
+                <div class="rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}" class="w-full h-64 object-cover">
+                </div>
+            {% empty %}
+                <p class="col-span-4 text-center text-gray-500 py-12">No images yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

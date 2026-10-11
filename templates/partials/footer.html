@@ -1,0 +1,39 @@
+<footer class="bg-beauty-dark text-white mt-20">
+    <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-serif text-2xl font-bold mb-4">
+                    Platonic<span class="text-beauty-pink">Beauty</span>
+                </h3>
+                <p class="text-gray-400 text-sm">Premium salon services for men and women.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="{% url 'services:list' %}" class="hover:text-beauty-pink">Services</a></li>
+                    <li><a href="{% url 'stylists:list' %}" class="hover:text-beauty-pink">Our Team</a></li>
+                    <li><a href="{% url 'bookings:create' %}" class="hover:text-beauty-pink">Book Now</a></li> 
+                </ul> 
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Contact</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li>123 Beauty Ave, Los Angeles, CA</li>
+                    <li>+1 (555) 123-4567</li>
+                    <li>hello@platonicbeauty.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Hours</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li>Mon-Fri: 9AM - 8PM</li>
+                    <li>Saturday: 9AM - 6PM</li>
+                    <li>Sunday: Closed</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+            © {% now "Y" %} PlatonicBeauty. All Rights Reserved.
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Appointment - PlatonicBeauty{% endblock %}
+
+{% block content %}
+
+<section class="py-16">
+    <div class="container mx-auto px-4 max-w-2xl">
+        <h1 class="font-serif text-4xl font-bold mb-8 text-center">Book Your Appointment</h1>
+
+        <form method="post" class="bg-white p-8 rounded-lg shadow-lg space-y-6">
+            {% csrf_token %}
+
+            <div>
+                <label class="block font-semibold mb-2">Service</label>
+                <select name="service" required class="w-full px-4 py-3 border rounded-lg">
+                    <option value="">-- Choose a service --</option>
+                    {% for service in services %}
+                        <option value="{{ service.id }}" {% if preselected_service == service.id|stringformat:"s" %}selected{% endif %}>
+                            {{ service.name }} ({{ service.get_gender_display }}) - ${{ service.price }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>
+                <label class="block font-semibold mb-2">Stylist</label>
+                <select name="stylist" required class="w-full px-4 py-3 border rounded-lg">
+                    <option value="">-- Choose a stylist --</option>
+                    {% for stylist in stylists %}
+                        <option value="{{ stylist.id }}" {% if preselected_stylist == stylist.id|stringformat:"s" %}selected{% endif %}>
+                            {{ stylist.display_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block font-semibold mb-2">Date</label>
+                    <input type="date" name="date" required class="w-full px-4 py-3 border rounded-lg">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-2">Time</label>
+                    <input type="time" name="time" required class="w-full px-4 py-3 border rounded-lg">
+                </div>
+            </div>
+
+            <div>
+                <label class="block font-semibold mb-2">Your Name</label>
+                <input type="text" name="name" required class="w-full px-4 py-3 border rounded-lg">
+            </div>
+
+            <div>
+                <label class="block font-semibold mb-2">Phone</label>
+                <input type="tel" name="phone" required class="w-full px-4 py-3 border rounded-lg">
+            </div>
+
+            <div>
+                <label class="block font-semibold mb-2">Email (optional)</label>
+                <input type="email" name="email" class="w-full px-4 py-3 border rounded-lg">
+            </div>
+
+            <button type="submit" class="w-full bg-beauty-pink text-white py-4 rounded-full font-semibold hover:bg-pink-700 transition">
+                Confirm Booking
+            </button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

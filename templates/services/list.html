@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Services - PlatonicBeauty{% endblock %}
+
+{% block content %}
+
+<section class="py-16">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h1 class="font-serif text-5xl font-bold mb-4">Our Services</h1>
+            <p class="text-gray-600">Tailored for men and women</p>
+        </div>
+
+        <!-- Gender Filter -->
+        <div class="flex justify-center gap-3 mb-10">
+            <a href="{% url 'services:list' %}"
+               class="px-6 py-2 rounded-full border {% if not selected_gender %}bg-beauty-pink text-white{% else %}border-gray-300{% endif %}">
+                All
+            </a>
+            <a href="?gender=male"
+               class="px-6 py-2 rounded-full border {% if selected_gender == 'male' %}bg-beauty-pink text-white{% else %}border-gray-300{% endif %}">
+                Men
+            </a>
+            <a href="?gender=female"
+               class="px-6 py-2 rounded-full border {% if selected_gender == 'female' %}bg-beauty-pink text-white{% else %}border-gray-300{% endif %}">
+                Women
+            </a>
+            <a href="?gender=unisex"
+               class="px-6 py-2 rounded-full border {% if selected_gender == 'unisex' %}bg-beauty-pink text-white{% else %}border-gray-300{% endif %}">
+                Unisex
+            </a>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for service in services %}
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                    {% if service.image %}
+                        <img src="{{ service.image.url }}" alt="{{ service.name }}" class="w-full h-48 object-cover">
+                    {% else %}
+                        <div class="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-400">
+                            No image
+                        </div>
+                    {% endif %}
+                    <div class="p-6">
+                        <span class="text-xs uppercase tracking-wide text-beauty-pink font-semibold">
+                            {{ service.get_gender_display }}
+                        </span>
+                        <h3 class="font-serif text-xl font-bold mt-2 mb-2">{{ service.name }}</h3>
+                        <p class="text-gray-600 text-sm mb-4">{{ service.description|truncatewords:15 }}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-beauty-pink font-bold">${{ service.price }}</span>
+                            <a href="{% url 'services:detail' service.slug %}"
+                               class="text-beauty-dark font-semibold hover:text-beauty-pink">
+                                View →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="col-span-3 text-center text-gray-500 py-12">No services found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

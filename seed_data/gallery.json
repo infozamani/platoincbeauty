@@ -1,0 +1,50 @@
+[
+  {
+    "model": "gallery.galleryitem",
+    "pk": 1,
+    "fields": {
+      "title": "Classic Men's Fade",
+      "image": "",
+      "category": "hair",
+      "gender": "male",
+      "is_active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "gallery.galleryitem",
+    "pk": 2,
+    "fields": {
+      "title": "Balayage Transformation",
+      "image": "",
+      "category": "hair",
+      "gender": "female",
+      "is_active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "gallery.galleryitem",
+    "pk": 3,
+    "fields": {
+      "title": "Bridal Updo",
+      "image": "",
+      "category": "hair",
+      "gender": "female",
+      "is_active": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "gallery.galleryitem",
+    "pk": 4,
+    "fields": {
+      "title": "Beard Grooming",
+      "image": "",
+      "category": "hair",
+      "gender": "male",
+      "is_active": true,
+      "order": 4
+    }
+  }
+]

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="relative h-[600px] bg-cover bg-center" style="background-image: url('{% static "images/hero.jpg" %}');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative container mx-auto px-4 h-full flex items-center">
+        <div class="max-w-2xl text-white">
+            <h1 class="font-serif text-5xl md:text-6xl font-bold mb-6">
+                Where Beauty Meets <span class="text-beauty-pink">Perfection</span>
+            </h1>
+            <p class="text-xl mb-8">Premium salon services for men and women in Los Angeles.</p>
+            <div class="flex gap-4">
+                {% comment %} <a href="{% url 'bookings:create' %}" class="bg-beauty-pink text-white px-8 py-4 rounded-full font-semibold hover:bg-pink-700 transition">
+                    Book Appointment
+                </a> {% endcomment %}
+                <a href="{% url 'services:list' %}" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-beauty-dark transition">
+                    View Services
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Preview -->
+<section class="py-20">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl font-bold mb-4">Our Services</h2>
+            <p class="text-gray-600">Tailored for men and women</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for service in featured_services %}
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                    {% if service.image %}
+                        <img src="{{ service.image.url }}" alt="{{ service.name }}" class="w-full h-48 object-cover">
+                    {% endif %}
+                    <div class="p-6">
+                        <span class="text-xs uppercase tracking-wide text-beauty-pink font-semibold">{{ service.get_gender_display }}</span>
+                        <h3 class="font-serif text-xl font-bold mt-2 mb-2">{{ service.name }}</h3>
+                        <p class="text-gray-600 text-sm mb-4">{{ service.description|truncatewords:15 }}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-beauty-pink font-bold">${{ service.price }}</span>
+                            <a href="{% url 'bookings:create' %}?service={{ service.id }}" class="text-beauty-dark font-semibold hover:text-beauty-pink">
+                                Book →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="col-span-3 text-center text-gray-500">No services yet. Add them in admin panel.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-beauty-pink">
+    <div class="container mx-auto px-4 text-center text-white">
+        <h2 class="font-serif text-4xl font-bold mb-4">Ready for a New Look?</h2>
+        <p class="text-xl mb-8">Book your appointment today and experience the difference.</p>
+        {% comment %} <a href="{% url 'bookings:create' %}" class="bg-white text-beauty-pink px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition">
+            Book Now
+        </a> {% endcomment %}
+    </div>
+</section>
+
+{% endblock %}
