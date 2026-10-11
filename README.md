@@ -1,3 +1,6 @@
+<img width="777" height="789" alt="image" src="https://github.com/user-attachments/assets/5cd32ddb-90f8-44f2-a56f-fee621a2a7ef" />
+<img width="744" height="793" alt="image" src="https://github.com/user-attachments/assets/0d074bc9-f2c4-4eab-ab12-697ac08ca4db" />
+
 # Platonic Beauty
 
 Django 5 booking + marketing site for a men's/women's salon (US). Passwordless bookings, local SEO, EN/ES.
